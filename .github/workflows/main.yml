@@ -37,14 +37,12 @@ jobs:
       - name: Check account
         uses: azure/CLI@v1
         with:
-          azcliversion: 2.30.0
           inlineScript: |
             az account show
 
       - name: Create some bicep resources
         uses: azure/CLI@v1
         with:
-          azcliversion: 2.30.0
           inlineScript: |
             az stack group create \
             --name test1 \
