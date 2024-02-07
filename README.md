@@ -1,3 +1,3 @@
 # cheapskate
 
-automatically cleaning out deployment stacks in Azure
+Automatically clean out test environments in Azure.
