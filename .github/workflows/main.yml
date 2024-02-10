@@ -54,4 +54,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az stack group delete --name test1 --resource-group test1
+            az stack group delete \
+            --name test1 \
+            --resource-group test1 \
+            --delete-resources
