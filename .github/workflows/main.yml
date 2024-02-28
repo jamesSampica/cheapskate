@@ -50,11 +50,11 @@ jobs:
             --template-file main.bicep \
             --deny-settings-mode 'none'
 
-      - name: Delete test
+      - name: Getting stack group list
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az stack sub list
+            az stack group list
       
       - name: Delete test
         uses: azure/CLI@v1
