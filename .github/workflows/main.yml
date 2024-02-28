@@ -49,6 +49,12 @@ jobs:
             --resource-group test1 \
             --template-file main.bicep \
             --deny-settings-mode 'none'
+
+      - name: Delete test
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az stack group sub
       
       - name: Delete test
         uses: azure/CLI@v1
