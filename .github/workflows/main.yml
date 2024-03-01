@@ -64,8 +64,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            $Hw = "Hello World"
-            $Hw
+            pwsh -c "write-host Hello world"
             az group list
             az stack group list -g test1
             
