@@ -64,9 +64,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            pwsh -c "write-host Hello world"
-            az group list
-            az stack group list -g test1
+            az group list --query "[?starts_with(name, 'test') ].name"
             
       - name: Delete test1
         uses: azure/CLI@v1
