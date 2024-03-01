@@ -64,8 +64,8 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            $Today = (Get-Date).DateTime
-            $Today
+            $Hw = "Hello World"
+            $Hw
             az group list
             az stack group list -g test1
             
