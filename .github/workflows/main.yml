@@ -40,7 +40,7 @@ jobs:
           inlineScript: |
             az account show
 
-      - name: Create some bicep resources
+      - name: Create some bicep resources 1
         uses: azure/CLI@v1
         with:
           inlineScript: |
@@ -50,19 +50,39 @@ jobs:
             --template-file main.bicep \
             --deny-settings-mode 'none'
 
+      - name: Create some bicep resources 2
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az stack group create \
+            --name test2 \
+            --resource-group test2 \
+            --template-file main.bicep \
+            --deny-settings-mode 'none'
+
       - name: Getting stack group list
         uses: azure/CLI@v1
         with:
           inlineScript: |
             az stack group list -g test1
             
-      - name: Delete test
+      - name: Delete test1
         uses: azure/CLI@v1
         with:
           inlineScript: |
             az stack group delete \
             --name test1 \
             --resource-group test1 \
+            --delete-resources \
+            --yes
+
+      - name: Delete test2
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az stack group delete \
+            --name test2 \
+            --resource-group test2 \
             --delete-resources \
             --yes
 
