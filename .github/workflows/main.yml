@@ -64,7 +64,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az group list --query "[?starts_with(name, 'test') ].name"
+            az group list --query "[].name"
             
       - name: Delete test1
         uses: azure/CLI@v1
