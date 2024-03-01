@@ -64,6 +64,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
+            az group list
             az stack group list -g test1
             
       - name: Delete test1
