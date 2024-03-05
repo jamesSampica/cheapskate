@@ -64,7 +64,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az group list --query "[].name" -o tsv | xargs -n1 az stack group list --resource-group test1
+            az group list --query "[].name" -o tsv | xargs -0trn1 az
             
       - name: Delete test1
         uses: azure/CLI@v1
