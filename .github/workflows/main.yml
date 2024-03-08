@@ -28,20 +28,20 @@ jobs:
       - uses: actions/checkout@v3
   
       - name: Az CLI login
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Check account
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: |
             az account show
 
       - name: Create some bicep resources 1
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: |
             az stack group create \
@@ -51,7 +51,7 @@ jobs:
             --deny-settings-mode 'none'
 
       - name: Create some bicep resources 2
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: |
             az stack group create \
@@ -75,6 +75,7 @@ jobs:
             
       - name: Delete test1
         uses: azure/CLI@v1
+        if: false
         with:
           inlineScript: |
             az stack group delete \
@@ -85,6 +86,7 @@ jobs:
 
       - name: Delete test2
         uses: azure/CLI@v1
+        if: false
         with:
           inlineScript: |
             az stack group delete \
