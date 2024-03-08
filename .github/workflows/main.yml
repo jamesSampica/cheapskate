@@ -63,7 +63,9 @@ jobs:
       - name: Test powershell
         shell: pwsh
         run: |
-          az group list --query "[].name"
+          $test = az group list --query "[].name"
+          Write-Host "test"
+          $test
 
       - name: Getting stack group list
         uses: azure/CLI@v1
