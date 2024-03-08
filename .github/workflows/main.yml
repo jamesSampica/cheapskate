@@ -60,6 +60,11 @@ jobs:
             --template-file main.bicep \
             --deny-settings-mode 'none'
 
+      - name: Test powershell
+        shell: pwsh
+        run: |
+          az group list --query "[].name"
+
       - name: Getting stack group list
         uses: azure/CLI@v1
         with:
