@@ -65,15 +65,10 @@ jobs:
       - name: Test powershell
         shell: pwsh
         run: |
-          $test = az group list --query "[].name"
-          Write-Host "test"
-          $test
-
-      - name: Getting stack group list
-        uses: azure/CLI@v2
-        with:
-          inlineScript: |
-            az group list --query "[].name" -o tsv | xargs -I{} az stack group list --resource-group {}
+          $rgs = az group list --query "[].name"
+          $rgs
+          
+          $rgs | az stack group list --resource-group $_
             
       - name: Delete test1
         uses: azure/CLI@v2
