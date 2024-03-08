@@ -42,6 +42,7 @@ jobs:
 
       - name: Create some bicep resources 1
         uses: azure/CLI@v2
+        if: false
         with:
           inlineScript: |
             az stack group create \
@@ -52,6 +53,7 @@ jobs:
 
       - name: Create some bicep resources 2
         uses: azure/CLI@v2
+        if: false
         with:
           inlineScript: |
             az stack group create \
@@ -68,13 +70,13 @@ jobs:
           $test
 
       - name: Getting stack group list
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: |
             az group list --query "[].name" -o tsv | xargs -I{} az stack group list --resource-group {}
             
       - name: Delete test1
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         if: false
         with:
           inlineScript: |
@@ -85,7 +87,7 @@ jobs:
             --yes
 
       - name: Delete test2
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         if: false
         with:
           inlineScript: |
