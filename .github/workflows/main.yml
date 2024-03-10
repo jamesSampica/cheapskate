@@ -68,8 +68,9 @@ jobs:
           $rgs = az group list --query "[].name"
           $rgs
           
-          $rgs | ForEach-Object -Process { az stack group list --resource-group $_ }
-            
+          $stacks = $rgs | ForEach-Object -Process { az stack group list --resource-group $_ }
+          $stacks
+          
       - name: Delete test1
         uses: azure/CLI@v2
         if: false
