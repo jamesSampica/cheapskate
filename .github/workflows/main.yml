@@ -68,9 +68,11 @@ jobs:
           $rgs = az group list --query "[].name" | ConvertFrom-Json
           
           $stacks = $rgs | ForEach-Object { 
-            $stack = $_
-            $stack
-            az stack group list --query "[].name" -g $stack | ConvertFrom-Json | ForEach-Object { $_ } 
+            $rg = $_
+            az stack group list --query "[].name" -g $rg | ConvertFrom-Json | ForEach-Object 
+            { 
+              az stack group delete --name $_ --resource-group $rg --delete-resources --yes
+            } 
           }
           
       - name: Delete test1
