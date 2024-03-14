@@ -40,29 +40,29 @@ jobs:
           inlineScript: |
             az account show
 
-      - name: Create some bicep resources 1
+      - name: Create stack 1
         uses: azure/CLI@v2
-        if: false
+        if: true
         with:
           inlineScript: |
             az stack group create \
-            --name test1 \
+            --name stack1 \
             --resource-group test1 \
             --template-file main.bicep \
             --deny-settings-mode 'none'
 
-      - name: Create some bicep resources 2
+      - name: Create stack 2
         uses: azure/CLI@v2
-        if: false
+        if: true
         with:
           inlineScript: |
             az stack group create \
-            --name test2 \
+            --name stack2 \
             --resource-group test2 \
             --template-file main.bicep \
             --deny-settings-mode 'none'
 
-      - name: Test powershell
+      - name: Delete all stacks
         shell: pwsh
         run: |
           $rgs = az group list --query "[].name" | ConvertFrom-Json
@@ -73,26 +73,4 @@ jobs:
               az stack group delete --name $_ --resource-group $rg --delete-resources --yes
             }
           }
-          
-      - name: Delete test1
-        uses: azure/CLI@v2
-        if: false
-        with:
-          inlineScript: |
-            az stack group delete \
-            --name test1 \
-            --resource-group test1 \
-            --delete-resources \
-            --yes
-
-      - name: Delete test2
-        uses: azure/CLI@v2
-        if: false
-        with:
-          inlineScript: |
-            az stack group delete \
-            --name test2 \
-            --resource-group test2 \
-            --delete-resources \
-            --yes
 
