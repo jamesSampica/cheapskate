@@ -65,5 +65,5 @@ jobs:
       - name: Delete stacks
         shell: pwsh
         run: |
-          ..\cheapskate.ps1
+          ...\cheapskate.ps1
 
