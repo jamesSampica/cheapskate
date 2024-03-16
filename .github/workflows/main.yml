@@ -62,14 +62,14 @@ jobs:
             --template-file main.bicep \
             --deny-settings-mode 'none'
 
-      - name: Delete all stacks
+      - name: Delete stacks
         shell: pwsh
         run: |
           # Get all the resource groups
           $rgs = az group list --query "[].name" | ConvertFrom-Json
 
           # Filter out the resource groups that we don't want to delete
-          $excluded = @("test1","test2")
+          $excluded = @("test1")
           $rgs = $rgs | Where-Object { $_ -NotIn $excluded }
 
           # Get stacks in each resource group and delete them
