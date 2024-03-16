@@ -68,7 +68,7 @@ jobs:
           # Get all the resource groups
           $rgs = az group list --query "[].name" | ConvertFrom-Json
 
-          # Filter out the ones we dont want
+          # Filter out the resource groups that we don't want to delete
           $excluded = "test1"
           $rgs = $rgs | Where-Object { $_ -NotIn $excluded }
 
