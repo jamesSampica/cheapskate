@@ -13,3 +13,6 @@ Simply execute `cheapskate.ps1` in a pipeline that has been authenticated with A
   shell: pwsh
   run: ${{ github.workspace }}/cheapskate.ps1
 ```
+
+
+## Excluding Resource Groups
