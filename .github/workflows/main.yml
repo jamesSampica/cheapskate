@@ -65,4 +65,6 @@ jobs:
       - name: Delete stacks
         shell: pwsh
         run: ${{ github.workspace }}/cheapskate.ps1
+        env:
+          EXCLUDE_RGS: "[ 'test1' ]"
 
