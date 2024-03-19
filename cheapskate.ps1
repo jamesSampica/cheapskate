@@ -2,7 +2,7 @@
 $rgs = az group list --query "[].name" | ConvertFrom-Json
 
 # Filter out the resource groups that we don't want to delete
-$excluded = $env:EXCLUDE_RGS | ConvertFrom-Json
+$excluded = $env:EXCLUDE_RGS ?? "[]" | ConvertFrom-Json
 $rgs = $rgs | Where-Object { $_ -NotIn $excluded }
 
 # Get stacks in each resource group and delete them
