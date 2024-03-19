@@ -62,9 +62,13 @@ jobs:
             --template-file main.bicep \
             --deny-settings-mode 'none'
 
-      - name: Delete stacks
+      - name: Exclude stacks
         shell: pwsh
         run: ${{ github.workspace }}/cheapskate.ps1
         env:
           EXCLUDE_RGS: "[ 'test1', 'test2' ]"
+
+      - name: Delete stacks
+        shell: pwsh
+        run: ${{ github.workspace }}/cheapskate.ps1
 
