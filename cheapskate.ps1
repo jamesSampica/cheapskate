@@ -8,6 +8,7 @@ $excluded = $env:EXCLUDE_STACKS ?? "[]" | ConvertFrom-Json
 $stacks = $rgs | ForEach-Object {
   $rg = $_
   az stack group list --query "[].name" -g $rg | ConvertFrom-Json | ForEach-Object {
+    Write-Host $excluded
     If($_ -In $excluded) {
       Write-Host "Skipping Stack ${_} from ${rg}"
     }
