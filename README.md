@@ -15,4 +15,14 @@ Simply execute `cheapskate.ps1` in a pipeline that has been authenticated with A
 ```
 
 
-## Excluding Resource Groups
+## Excluding Stacks
+
+Set an environment variable containing a JSON array when executing the script task.
+
+```
+- name: Delete stacks
+  shell: pwsh
+  run: ${{ github.workspace }}/cheapskate.ps1
+  env:
+    EXCLUDE_STACKS: "[ 'stack1', 'stack2' ]"
+```
