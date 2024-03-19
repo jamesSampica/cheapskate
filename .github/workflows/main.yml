@@ -66,5 +66,5 @@ jobs:
         shell: pwsh
         run: ${{ github.workspace }}/cheapskate.ps1
         env:
-          EXCLUDE_RGS: "[ 'test1' ]"
+          EXCLUDE_RGS: "[ 'test1', 'test2' ]"
 
