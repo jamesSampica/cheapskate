@@ -24,5 +24,6 @@ Set an environment variable containing a JSON array when executing the script ta
   shell: pwsh
   run: ${{ github.workspace }}/cheapskate.ps1
   env:
-    EXCLUDE_STACKS: "[ 'stack1', 'stack2' ]"
+    EXCLUDE_STACKS: |
+      [ 'stack1', 'stack2' ]
 ```
