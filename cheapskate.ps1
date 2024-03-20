@@ -6,6 +6,7 @@ $excluded = $env:EXCLUDE_STACKS ?? "[]" | ConvertFrom-Json
 
 # Get stacks in each resource group and delete them
 $stacks = $rgs | ForEach-Object {
+  $excluded = $using:excluded
   $rg = $_
   az stack group list --query "[].name" -g $rg | ConvertFrom-Json | ForEach-Object {
     If($_ -In $using:excluded) {
