@@ -1,10 +1,12 @@
-# cheapskate
+# Cheapskate
 
-Automatically clean up your test and sandbox environments in Azure, saving cloud costs.
+Save Azure cloud costs by automatically cleaning up your test and sandbox environments.
 
-This script leverages the Azure CLI to automatically destroy [Deployment Stacks](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell).
+This tool leverages the Azure CLI to automatically destroy [Deployment Stacks](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell).
 
-This is intended to be paired with some flavor of infrastructure-as-code like Bicep or Terraform. I would not use this tool when provisioning resources via ClickOps.
+ - This tool is intended to be paired with some flavor of infrastructure-as-code like Bicep or Terraform. I would not use this tool when provisioning resources via ClickOps.
+
+ - This tool is intended to be run as part of a pipeline, not from a personal machine. From the pipeline, you may setup a schedule to the tool or run it manually as needed.
 
 ## Usage
 
