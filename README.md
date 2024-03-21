@@ -6,7 +6,9 @@ Leverages the Azure CLI to automatically destroy [Deployment Stacks](https://lea
 
 Simply execute `cheapskate.ps1` in a pipeline that has been authenticated with Azure. 
 
-This will destroy all deployment stacks within the subscription scope of the authenticated Azure identity.
+This will destroy all deployment stacks within the subscription scope** of the authenticated Azure identity.
+
+** WARNING: Accidentally executing this script against a production environment could be a career-limiting move for you. Be very diligent to ensure the identity you use is authenticated against a non-production subscription scope.
 
 ```
 - name: Delete stacks
