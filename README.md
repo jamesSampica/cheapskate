@@ -1,6 +1,10 @@
 # cheapskate
 
-Leverages the Azure CLI to automatically destroy [Deployment Stacks](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell).
+Automatically clean up your test and sandbox environments in Azure, saving cloud costs.
+
+This script leverages the Azure CLI to automatically destroy [Deployment Stacks](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell).
+
+This is intended to be paired with some flavor of infrastructure-as-code like Bicep or Terraform. I would not use this tool when provisioning resources via ClickOps.
 
 ## Usage
 
@@ -8,7 +12,7 @@ Simply execute `cheapskate.ps1` in a pipeline that has been authenticated with A
 
 This will destroy all deployment stacks within the subscription scope** of the authenticated Azure identity.
 
-** WARNING: Accidentally executing this script against a production environment could be a career-limiting move for you. Be very diligent to ensure the identity you use is authenticated against a non-production subscription scope.
+** WARNING: Accidentally executing this tool against a production environment could be a career-limiting move for you. Be very diligent to ensure the identity you use is authenticated against a non-production subscription scope.
 
 ```
 - name: Delete stacks
