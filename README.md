@@ -27,9 +27,7 @@ This will destroy all deployment stacks within the subscription scope** of the a
 
 ## Excluding Stacks
 
-Set the `EXCLUDE_STACKS` environment variable containing a JSON array when executing the script task.
-
-These stacks will be skipped when the script executes.
+Set the `EXCLUDE_STACKS` environment variable to a JSON array containing the names of the deployment stacks you want to exclude. These stacks will be skipped when the script executes.
 
 ```
 - name: Delete stacks
