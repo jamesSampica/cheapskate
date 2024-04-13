@@ -1,6 +1,6 @@
 # Cheapskate
 
-Save Azure cloud costs by automatically cleaning up your test and sandbox environments.
+A simple scripted tool that helps save money by cleaning up Azure-hosted test and sandbox environments.
 
 This tool leverages the Azure CLI to automatically destroy [Deployment Stacks](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell).
 
