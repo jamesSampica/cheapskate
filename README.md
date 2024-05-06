@@ -8,6 +8,10 @@ This tool leverages the Azure CLI to automatically destroy [Deployment Stacks](h
 
  - This tool is intended to be run as part of a pipeline, not from a personal machine. From the pipeline, you may setup a schedule to the tool or run it manually as needed.
 
+## Motivation
+
+Many Azure resources require infrastructure provisioning or come with comptue costs even if these services are not being actively used.
+
 ## Usage
 
 Simply execute `cheapskate.ps1` in a pipeline that has been authenticated with Azure. 
