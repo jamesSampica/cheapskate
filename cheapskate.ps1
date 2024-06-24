@@ -13,7 +13,7 @@ $stacks = $rgs | ForEach-Object {
     }
     Else {
       Write-Host "Deleting stack '${_}' from resource group '${rg}'."
-      az stack group delete --name $_ --resource-group $rg --delete-resources --yes
+      az stack group delete --name $_ --resource-group $rg --aou deleteAll --yes
     }
   }
 }
