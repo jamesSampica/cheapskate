@@ -40,7 +40,8 @@ jobs:
             --name stack1 \
             --resource-group test1 \
             --template-file main.bicep \
-            --deny-settings-mode 'none'
+            --deny-settings-mode 'none' \
+            --aou deleteAll
 
       - name: Create stack 2
         uses: azure/CLI@v2
@@ -51,7 +52,8 @@ jobs:
             --name stack2 \
             --resource-group test2 \
             --template-file main.bicep \
-            --deny-settings-mode 'none'
+            --deny-settings-mode 'none' \
+            --aou deleteAll
 
       - name: Exclude stacks
         shell: pwsh
